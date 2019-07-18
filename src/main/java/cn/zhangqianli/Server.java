@@ -9,7 +9,7 @@ public class Server{
     private static final int PORT = 8080;
     public static void main(String[] args) {
         try(ServerSocket server = new ServerSocket(PORT)){
-            while (true){
+//            while (true){
                 try(Socket connection  = server.accept()){
                     Writer out = new OutputStreamWriter(connection.getOutputStream());
                     InputStream in = connection.getInputStream();
@@ -22,7 +22,7 @@ public class Server{
                     out.write(now.toString() + "\r\n");
                     out.flush();
                 }
-            }
+//            }
         }
         catch (Exception e){
             e.printStackTrace();

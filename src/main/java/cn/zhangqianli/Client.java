@@ -19,8 +19,8 @@ class Client{
             BufferedReader bfReader = new BufferedReader(reader);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(),"UTF-8"));
             Random rand = new Random(123L);
-            System.out.print("请输入第一个变量：");
             Scanner scanner = new Scanner(System.in);
+            System.out.print("请输入第一个变量：");
             while (scanner.hasNext()){
                 String input = scanner.next();
                 System.out.println("输入变量是：" + input);
