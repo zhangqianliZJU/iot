@@ -18,20 +18,23 @@ public class SocketServer {
         InputStream inputStream = socket.getInputStream();
         byte[] bytes = new byte[1024];
         int len;
-        StringBuilder sb = new StringBuilder();
-        //只有当客户端关闭它的输出流的时候，服务端才能取得结尾的-1
-        while ((len = inputStream.read(bytes)) != -1) {
-            // 注意指定编码格式，发送方和接收方一定要统一，建议使用UTF-8
-            sb.append(new String(bytes, 0, len, "UTF-8"));
+        OutputStream outputStream = null;
+        while (true) {
+            StringBuilder sb = new StringBuilder();
+            //只有当客户端关闭它的输出流的时候，服务端才能取得结尾的-1
+            while ((len = inputStream.read(bytes)) != -1) {
+                // 注意指定编码格式，发送方和接收方一定要统一，建议使用UTF-8
+                sb.append(new String(bytes, 0, len, "UTF-8"));
+            }
+            System.out.println("get message from client: " + sb);
+
+            outputStream = socket.getOutputStream();
+            outputStream.write("Hello Client,I get the message.".getBytes("UTF-8"));
         }
-        System.out.println("get message from client: " + sb);
 
-        OutputStream outputStream = socket.getOutputStream();
-        outputStream.write("Hello Client,I get the message.".getBytes("UTF-8"));
-
-        inputStream.close();
-        outputStream.close();
-        socket.close();
-        server.close();
+//        inputStream.close();
+//        outputStream.close();
+//        socket.close();
+//        server.close();
     }
 }
