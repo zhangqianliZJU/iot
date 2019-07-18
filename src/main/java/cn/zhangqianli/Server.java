@@ -11,6 +11,7 @@ public class Server{
         try(ServerSocket server = new ServerSocket(PORT)){
 //            while (true){
                 try(Socket connection  = server.accept()){
+                    System.out.println("Remote address is: " + connection.getRemoteSocketAddress());
                     Writer out = new OutputStreamWriter(connection.getOutputStream());
                     InputStream in = connection.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(in,"UTF-8"));
