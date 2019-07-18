@@ -23,6 +23,7 @@ class Client{
             Scanner scanner = new Scanner(System.in);
             while (scanner.hasNext()){
                 String input = scanner.next();
+                System.out.println("输入变量是：");
                 writer.write("User input by the client side is: " + input);
                 int randomNumber = rand.nextInt(5000);
                 writer.write("The random number generate by the client is: " + randomNumber);
