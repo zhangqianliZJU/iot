@@ -1,4 +1,4 @@
-package cn.zhangqianli;
+package cn.zhangqianli.my;
 
 import java.io.*;
 import java.net.ServerSocket;
