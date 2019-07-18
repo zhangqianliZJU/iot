@@ -8,7 +8,7 @@ import java.net.Socket;
 public class SocketServer {
     public static void main(String[] args) throws Exception {
         // 监听指定的端口
-        int port = 55533;
+        int port = 8000;
         ServerSocket server = new ServerSocket(port);
 
         // server将一直等待连接的到来

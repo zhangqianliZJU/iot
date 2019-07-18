@@ -7,8 +7,8 @@ import java.net.Socket;
 public class SocketClient {
     public static void main(String args[]) throws Exception {
         // 要连接的服务端IP地址和端口
-        String host = "127.0.0.1";
-        int port = 55533;
+        String host = "www.tbm.cloud";
+        int port = 8000;
         // 与服务端建立连接
         Socket socket = new Socket(host, port);
         // 建立连接后获得输出流
