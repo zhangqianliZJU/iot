@@ -12,7 +12,6 @@ public class Server{
 //            while (true){
             try(Socket connection  = server.accept()){
                 System.out.println("Remote address is: " + connection.getRemoteSocketAddress());
-                Writer out = new OutputStreamWriter(connection.getOutputStream());
                 InputStream in = connection.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in,"UTF-8"));
                 String inputs = "";
@@ -21,6 +20,7 @@ public class Server{
                     inputs+= line;
                 }
                 System.out.println(inputs);
+                Writer out = new OutputStreamWriter(connection.getOutputStream());
                 Date now = new Date();
                 out.write(now.toString() + "\r\n");
                 out.flush();
